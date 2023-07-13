@@ -24,22 +24,33 @@ getBase(`{
       where: {
         _and: [
           { object: { type: { _eq: "project" }, progresses: { isDone: { _eq: true } } } },
-          { type: { _eq: "xp" } }
+          { type: { _eq: "down" } }
         ]
       }
       order_by: { createdAt: asc }
     ) {
-      amount
+      amount      
       object {
         name
-        progresses{
-          grade
-        }
+      progresses{
+        grade
+      }
       }
     }
   }
+     xp_total: transaction_aggregate(where: {type: {_eq: "xp"}, eventId: {_eq: 32}}) {
+      aggregate {
+        sum {
+          amount
+        }
+      }
+    }
 }
 `).then(res => {
+
+
+    let xp_total = res.data.xp_total.aggregate.sum.amount
+
 
 
 
@@ -185,10 +196,7 @@ getBase(`{
     })
     index_rect++
   })
-
-  xp_amount += 12.225 // Montant de groupie-tracker-visualisation (BUG du JSON)
-  console.log("Xp amount:", xp_amount)
-  total_xp.innerHTML += xp_amount.toFixed(1) + "kB"
+  total_xp.innerHTML += xp_total
   total_xp.style.color = "#ffef5e"
 
   completed_projects.innerHTML += nb_of_prog
