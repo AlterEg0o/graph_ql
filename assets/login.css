@@ -1,0 +1,64 @@
+@font-face {
+    font-family: myFirstFont;
+    src: url(Typori-Regular.ttf)
+  }
+
+html, body {
+    color: rgb(158, 207, 255);
+    background-color: rgb(19, 56, 130);
+    height: 80%;
+    margin: 0;
+    padding: 0;
+    font-family: myFirstFont;
+    font-size: 1.5rem;
+}
+
+button {
+    background-color: rgb(197, 197, 197);
+    color: rgb(255, 255, 255);
+    border-radius: 20%;
+    font-style: italic;
+    font-family: myFirstFont;
+}
+
+button:hover {
+    cursor: pointer;
+}
+
+input {
+    height: 1rem;
+}
+
+h1 {
+    text-align: center;
+}
+
+.form-container {
+background-image: url(login.jpg);
+background-size: cover;
+display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
+/* 
+.form-container {
+    background-color: rgba(0, 255, 255, 0.716);
+    box-shadow: 10px 8px 400px aqua;
+    position: absolute;
+    top: 35%;
+    width: 10%;
+    height: 30%;
+    left: 45%;
+}
+
+input {
+    margin: 20px;
+    padding: 5px;
+}
+button {
+    display: flex;
+    align-items: center;
+} */
